@@ -299,7 +299,7 @@ The next part of the slave section contains common connection parameters and set
 |:-|:------------------|---------------------------------------------------------------------------------------------------
 | retries                       | **true**          | Retrying sending data to the master. The values can be either: true or false                      |
 | retryOnEmpty                  | **true**          | Retrying sending data to the master if it is empty                                                |
-| retryOnInvalid                | **true**          | Retrying sending data to the master if it is failed                                                |
+| retryOnInvalid                | **true**          | Retrying sending data to the master if it is fails                                                |
 | pollPeriod                    | **5000**          | Period in milliseconds to check the attributes and the telemetry on the slave                     |
 | unitId                        | **1**             | Id of current slave on Modbus.                                                                    |
 | deviceName                    | **Demo Device**   | Name of the current slave                                                                         |
