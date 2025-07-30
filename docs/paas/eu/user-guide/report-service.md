@@ -1,11 +1,11 @@
 ---
-layout: docwithnav-paas
+layout: docwithnav-paas-eu
 assignees:
 - stitenko
 title: Report service
 
 ---
 
-{% assign docsPrefix = "paas/" %}
+{% assign docsPrefix = "paas/eu/" %}
 {% include get-hosts-name.html docsPrefix=docsPrefix %}
 {% include docs/user-guide/report-service.md %}

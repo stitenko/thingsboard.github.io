@@ -262,6 +262,9 @@ toc:
   section:
     - title: Edge computing
       path: /docs/pe/user-guide/edge-computing/
+    - title: Report service
+      path: /docs/paas-eu/user-guide/report-service/
+      new: true
     - title: Device connectivity status
       path: /docs/paas/eu/user-guide/device-connectivity-status/
     - title: Claiming devices
