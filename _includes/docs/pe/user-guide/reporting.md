@@ -83,17 +83,7 @@ The Email Rule Nodes will prepare the email message with a report file in the at
 
 ![image](/images/user-guide/ui/reporting-generate-report-rule-chain.png)
 
-## Reports Widget
 
-ThingsBoard provides access to the generated report files via the **Reports** Widget that is a part of the **Files** Widgets Bundle.
-
-![image](/images/user-guide/ui/reporting-reports-widget.png)
- 
-The widget has the ability to filter the reports using the time range component.
-
-Also, the widget has the ability to search the reports by name.
-
-Each report can be downloaded by clicking on the **Download file** button.
 
 ## Next steps
 
