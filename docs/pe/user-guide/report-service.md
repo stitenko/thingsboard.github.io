@@ -7,10 +7,15 @@ title: Report service
 create-new-report-template:
     0:
         image: /images/user-guide/reporting/create-new-report-template-1-pe.png
-        title: 'Navigate to the "<b>Templates</b>" page. Click the "<b>+ Add report template</b>" button in the top-right corner. Choose "<b>Create new report template</b>".'
+        title: 'Go to the "<b>Reporting</b>" page from the left-hand menu — you&#39;ll land on the "<b>Templates</b>" tab by default. Click the "<b>+ Add report template</b>" button in the top-right corner. Choose "<b>Create new report template</b>".'
     1:
         image: /images/user-guide/reporting/create-new-report-template-2-pe.png
         title: 'Fill out the following fields: Enter a descriptive name for your template; Choose the desired output format: PDF or CSV: For structured, table-based reports ideal for spreadsheets and data processing; Select type: Reportor or Subreport; Then, click "Add" to proceed.<br>Once added, the report constructor interface will open automatically.'
+
+report-builder:
+    0:
+        image: /images/user-guide/reporting/report-builder-1-pe.png
+        title: 'Here&#39;s how the report builder looks.'
 
 report-example:
     0:
@@ -20,7 +25,29 @@ report-example:
         image: /images/user-guide/reporting/report-2-pe.png
         title: 'Generated report.'
 
-report-builder:
+variables-and-dynamic-content-1:
+    0:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-1-pe.png
+        title: ''
+    1:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-2-pe.png
+        title: ''
+    2:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-3-pe.png
+        title: ''
+    3:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-4-pe.png
+        title: ''
+
+variables-and-dynamic-content-2:
+    0:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-5-pe.png
+        title: ''
+    1:
+        image: /images/user-guide/reporting/variables-and-dynamic-content-6-pe.png
+        title: ''
+
+report-builder-example:
     0:
         image: /images/user-guide/reporting/report-builder-1-pe.png
         title: 'Here&#39;s how the report builder looks.'

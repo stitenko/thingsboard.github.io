@@ -1,50 +1,68 @@
 * TOC
 {:toc}
 
-{% assign feature = "White labeling" %}{% include templates/pe-feature-banner.md %}
-
 {% assign sinceVersion = "4.2" %}
 {% include templates/since.md %}
 
-**Report service 2.0** is a powerful and flexible tool for generating reports in PDF or CSV format. It introduces a streamlined user experience, advanced report customization,  quick scheduling and notification features, making it easier to deliver insights across your ThingsBoard platform.
+{% assign feature = "Reporting" %}{% include templates/pe-feature-banner.md %}
 
-**Architecute**
+**Reporting** is a powerful and flexible tool for automated report generation in PDF or CSV formats.   
+With it, you can:
+- Create report templates.
+- Schedule automatic report generation and distribution.
+- View the generated documents.
 
-The new report service supports two deployment modes:
+This functionality greatly simplifies analytics and reporting processes within the ThingsBoard ecosystem.
+
+**Reporting architecture**
+
+Reporting service supports two deployment modes:
+
 - **Monolith mode**: Runs within the core ThingsBoard monolith instance.
 - **Microservices mode**: Can be launched as a separate microservice, allowing for better scalability and isolation.
 
-## Report template
+## Report templates
 
-The "**Report templates**" section allows you to create or import **blueprints** that define the layout, structure, and content of your reports.
+On the "**Templates**" tab of the "**Reporting**" page, you can [create](#creating-report-template) or [import](#importing-report-template) report templates that define the **layout**, **structure**, and **content** of your reports.
 
-<br><b><font size="4">Create a new report template</font></b>
-- Navigate to the "**Templates**" page.
+Templates act as **reusable configurations** for generating **dynamic reports**  in two formats:
+- **PDF** — visually styled reports that include charts, tables, images, and company branding.
+- **CSV** — data-focused tabular reports ideal for further analysis in Excel or BI tools.
+
+
+- Use **PDF templates** for **visually styled reports** featuring charts, tables, images, and your company branding.
+- Use **CSV templates** for **structured**, **table-based reports** suitable for spreadsheets and data processing.
+
+### Creating report template
+- Open the "**Reporting**" page from the left-hand sidebar. You&#39;ll automatically be taken to the "**Templates**" tab.
 - Click the "**+ Add report template**" button in the top-right corner. 
 - Choose "**Create new report template**".
 
-In the **Add report template** dialog, fill out the following fields:
-- **Name** – Enter a descriptive name for your template.
-- **Format** – Choose the desired output format:
-  - **PDF**: For styled, visual reports with charts, tables, images, and layout control. 
-  - **CSV**: For structured, table-based reports ideal for spreadsheets and data processing.
+<font size="3">In the popup, fill out the following:</font>
+
+- **Name** – a descriptive name for the template.
+- **Format**:
+  - **PDF** - for visual reports.
+  - **CSV** - for spreadsheet-style data.
 - **Type**:
-  - **Report**: A complete standalone report template. 
-  - **Subreport**: A modular component that can be embedded inside another report.
-- **Description** (*optional*) – Add context or notes to help identify the template&#39;s purpose.
-- Click "**Add**" to proceed.
+  - **Report** - a complete standalone report template. 
+  - **Subreport** - a modular component that can be embedded inside another report.
+- **Description** (*optional*) – provide additional context, if needed.
+- Click "**Add**" to open the **report builder** interface.
 
 {% include images-gallery.html imageCollection="create-new-report-template" %}
 
-Once added, the **report builder** interface will open automatically.
-
 ### Report builder
 
-The **report builder** is a drag-and-drop editor that lets you build your template using visual and data-driven components. It provides full control over the layout and content of the final report.
+The **report builder** is a drag-and-drop editor that allows you to build the report template using visual and data components. You have full control over the appearance and structure of the report.
+
+{% include images-gallery.html imageCollection="report-builder" %}
+
+<br>**Report template** vs. **Generated report**:
 
 {% include images-gallery.html imageCollection="report-example" %}
 
-<br><b><font size="4">Components & interaction</font></b>
+#### Components & interaction
 
 Templates are composed of **customizable components**, each representing a **visual** or **functional block**.   
 These components define what will be included in your final report and how it will be presented.
@@ -66,25 +84,56 @@ Each component has two key configuration sections:
 - **Data configuration** This section determines what data the component will display and how it will be fetched or filtered. Each component supports entity aliasing and filtering, allowing dynamic data binding.
 - **Layout configuration** This controls the visual layout and formatting of the component in the final document.
 
-
-<br><b><font size="4">Supported Entity Aliases and Filters</font></b>
+#### Supported entity aliases and filters
 
 Report templates fully support the same entity aliasing model as dashboards. Additionally, new entity filters have been introduced:
 - **Originator entity**
 - **Owner of the originator**
 - **Entity from master report context** (for subreporting scenarios)
 
-**Variables & Dynamic Content**
+#### Variables & dynamic content
 
-Report components expose all their fetched data as **variables**, which can be used directly in component elements such as:
-- **Text blocks**
-- **Headings**
-- **Tables**
-- **Images**
+In ThingsBoard, report components provide data as variables that you can reference directly inside component elements. You can insert them wherever text is allowed — for example, in a text block, a table heading, a chart label, and other dynamic fields. 
+This allows you to build highly personalized, context-aware reports.
 
-To insert a variable, start typing $ within the editor, and a dropdown with available options will appear, offering autocompletion for dynamic insertion. (screenshot)
+**How it works**
 
-{% include images-gallery.html imageCollection="report-builder" %}
+Each report or sub-report component can contain a set of variables based on the specified data source, including:
+- the name of the current entity (e.g., device, asset, etc.);
+- attributes and telemetry values;
+- timestamps, user data, report metadata, and more.
+
+**Using variables in the editor**
+
+- First, add a data source to the selected component (e.g., a header or a text block).
+- Next, type the `$` symbol in the text field of that component to open the list of available variables.
+- A dropdown list will appear with all available variables in the current context.
+- Select a variable (e.g., ${entityName}, ${currentUser}, ${reportDate}), and its value will be inserted into the report during generation.
+
+{% include images-gallery.html imageCollection="variables-and-dynamic-content-1" %}
+
+{% include images-gallery.html imageCollection="variables-and-dynamic-content-2" %}
+
+**Example**
+
+As an example, let's create an “Environmental Monitor Report” template.
+
+{% include images-gallery.html imageCollection="report-builder-example" %}
+
+### Subreport
+
+A **Subreport** in ThingsBoard is a special type of report template that is **designed to be embedded inside another (main) report**. It behaves like a **reusable**, **modular block** that receives context from the parent report and generates its content accordingly.
+
+Just like regular reports, subreports can contain components such as tables, text blocks, images, dashboards, etc., and they fully support dynamic entity aliases and data filtering. However, subreports **are not scheduled or generated independently** — they are **included as part of a main report**.
+
+**Subreports are especially useful when:**
+- You want to **reuse a layout or data block** across multiple reports (e.g., a telemetry summary for devices).
+- You need to **generate repeated sections** dynamically for multiple entities (e.g., per-device pages in a report).
+- You want to **separate responsibilities** across different templates or teams working on report parts.
+
+### Importing report template
+
+If you already have a template, you can easily import it from a `.json` file using the "Import report template" option.
 
 ## Scheduling
 
@@ -118,8 +167,3 @@ All generated reports are available in the Reports menu item.
 > The number of generated reports can be limited per tenant via [tenant profile](/docs/{{docsPrefix}}user-guide/tenant-profiles/){:target="_blank"} configuration.
 
 {% include images-gallery.html imageCollection="reports" %}
-
-## Import report template
-
-If you already have a template, you can easily import it from a `.json` file using the "Import report template" option.
-
