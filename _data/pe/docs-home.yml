@@ -264,8 +264,8 @@ toc:
   section:
     - title: Edge computing
       path: /docs/pe/user-guide/edge-computing/
-    - title: Report service
-      path: /docs/pe/user-guide/report-service/
+    - title: Reporting
+      path: /docs/pe/user-guide/reporting/
       new: true
     - title: Device connectivity status
       path: /docs/pe/user-guide/device-connectivity-status/
@@ -290,8 +290,6 @@ toc:
       path: /docs/pe/user-guide/bulk-provisioning/
     - title: Scheduler
       path: /docs/pe/user-guide/scheduler/
-    - title: Reporting
-      path: /docs/pe/user-guide/reporting/
     - title: CSV/XLS data export
       path: /docs/pe/user-guide/csv-xls-data-export/
     - title: File storage

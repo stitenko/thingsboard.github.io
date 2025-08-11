@@ -1,10 +1,11 @@
 ---
 layout: docwithnav-paas-eu
+assignees:
+- stitenko
 title: Reporting
-description: Reporting Guide
-redirect_from: "/docs/user-guide/reporting/"
+description: Reporting guide
 ---
 
 {% assign docsPrefix = "paas/eu/" %}
 {% include get-hosts-name.html docsTag="paas-eu" %}
-{% include docs/pe/user-guide/reporting.md %}
+{% include docs/user-guide/reporting.md %}
