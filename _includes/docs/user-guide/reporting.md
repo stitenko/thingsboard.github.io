@@ -159,11 +159,13 @@ Do you have a ready-made report template in `.json` format? Simply click "**Impo
     - **Time zone** – select the time zone in which the schedule will operate.
     - **Repeat** – toggle to enable recurrence: choose intervals like daily, weekly, or monthly.
 
+You&#39;ll find all generated reports under the "[Reports](#reports)" tab.
+
 {% include images-gallery.html imageCollection="create-schedule-report" %}
 
 ## Reports
 
-You&#39;ll find all generated reports under the "**Reports**" tab. Here you can:
+The "**Reports**" tab stores all your generated reports. Here you can:
 - Download reports.
 - Filter reports by report template or by the user whose credentials were used to generate the report.
 - Delete unnecessary reports.
