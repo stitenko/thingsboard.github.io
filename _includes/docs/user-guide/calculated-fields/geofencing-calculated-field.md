@@ -220,12 +220,12 @@ To help you get started, here are three common configuration patterns applied to
 
 ### Scenario 2: Warehouse Equipment (Direct Association)
 
-**Use Case:** You manage a large distribution center. You have 50 forklifts, and each forklift is assigned to a specific "Warehouse Building" asset.
+**Use Case:** You manage a large distribution center. You have 2 forklifts, and each forklift is assigned to a specific "Warehouse Building" asset.
 
 {% assign warehouseEquipmentExample = '    
     ===
        image: /images/user-guide/calculated-fields/geofencing/warehouse-equipment-example-2.png
-       title: You manage a large distribution center. You have 50 forklifts, and each forklift is assigned to a specific “Warehouse Building” asset.'
+       title: You manage a large distribution center. You have 2 forklifts, and each forklift is assigned to a specific “Warehouse Building” asset.'
 %}
 
 {% include images-gallery.liquid imageCollection=warehouseEquipmentExample %}
@@ -235,7 +235,7 @@ To help you get started, here are three common configuration patterns applied to
   - **Entity Type:** "Related entities"
   - **Path:**
     - _Level 1:_ Direction "Up", Relation type "Contains" (Finds the Warehouse that contains this forklift).
-- **Why this fits:** You don't need to draw the warehouse polygon 50 times. You draw it once on the "Warehouse Asset," and all contained forklifts automatically inherit it.
+- **Why this fits:** You don't need to draw the warehouse polygon 2 times. You draw it once on the "Warehouse Asset," and all contained forklifts automatically inherit it.
 
 ### Scenario 3: Complex Fleet Management (Multiple Zone Types)
 
