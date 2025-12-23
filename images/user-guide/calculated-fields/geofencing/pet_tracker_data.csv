@@ -1,0 +1,3 @@
+name;type;latitude;longitude;safeZone
+Buddy;Pet Tracker;40.711828;-74.009960;"{""latitude"":40.711637, ""longitude"":-74.009756, ""radius"":50}"
+Rex;Pet Tracker;40.709173;-74.011709;"{""latitude"":40.708386,""longitude"":-74.011880, ""radius"":50}"
