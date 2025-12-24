@@ -57,12 +57,12 @@ A zone group is a logical category that bundles one or more physical zones (e.g.
 - "INSIDE": If the entity is present in any of the zones within the group.
 - "OUTSIDE": If the entity is not present in any of them.
 
-Click "Add zone group" to configure a new group.
+Click "Add zone group" to configure a new group. In the zone group configuration window, specify the following settings:
 
-> **💡 Naming Tip**: The zone group name is used as a prefix for the generated geofencing telemetry (e.g., Name + `Status` and Name + `Event`). 
-> We recommend using camelCase (e.g., restrictedArea instead of Restricted Area) to ensure your output keys are clean and easy to use (e.g., `restrictedAreaStatus`, `restrictedAreaEvent`).
+#### Name
 
-In the zone group configuration window, specify the following settings:
+The zone group name is used as a prefix for the generated geofencing telemetry (e.g., Name + `Status` and Name + `Event`). 
+We recommend using camelCase (e.g., restrictedArea instead of Restricted Area) to ensure your output keys are clean and easy to use (e.g., `restrictedAreaStatus`, `restrictedAreaEvent`).
 
 #### Entity type
 
@@ -161,8 +161,8 @@ This setting controls how frequently the system updates the cache for dynamicall
   - **Toggle Enabled:** The system refreshes relations periodically based on the configured seconds.
     > **⚠️ Note:** The minimum allowed value is determined by the "Min allowed update interval for 'Related entities' arguments" parameter in your Tenant Profile.
   - **Tuning:**
-    - **Low Value (e.g., 60s):** Recommended if devices are frequently reassigned to different groups or fleets during operation.
-    - **High Value (e.g., 3600s):** Recommended for environments where relations rarely change. This maximizes performance by reducing the database load. 
+    - **Low Value (e.g., 60s):** Required when zone relations change dynamically. This minimizes the delay in detecting changes. While not instantaneous, it ensures that shortly after a reassignment (e.g., within 60s), the system updates its cache and applies the geofencing logic for incoming telemetry with the latest zones.
+    - **High Value (e.g., 3600s):** Recommended for environments where relations rarely change. This maximizes performance by reducing database load (caching the relations for a longer period).
 
 <hr>
 
@@ -187,10 +187,10 @@ For a group named **restrictedArea**:
 > **💡 Best Practice:** Map these variables to **Time Series** data to maximize flexibility for both Dashboards and Alarms:
   - **Status Variable:**
     - _Visualization:_ Ideal for showing the current state (e.g., an LED indicator or map marker color).
-    - _Alarms:_ Perfect for duration-based logic (e.g., Trigger alarm if "restrictedAreaStatus" equals `OUTSIDE` for > 15 minutes).
+    - _Alarms:_ Perfect for duration-based logic (e.g., Trigger alarm if "restrictedAreaStatus" equals `INSIDE` for > 15 minutes).
   - **Event Variable:**
     - _Visualization:_ Useful for plotting historical transitions on charts or event tables.
-    - _Alarms:_ Perfect for instant triggers (e.g., Trigger alarm immediately when "restrictedAreaEvent" equals `LEFT`).
+    - _Alarms:_ Perfect for instant triggers (e.g., Trigger alarm immediately when "restrictedAreaEvent" equals `ENTERED`).
 
 {% include /docs/user-guide/calculated-fields/blocks/output-strategy.md %}
 
@@ -255,12 +255,8 @@ To help you get started, here are three common configuration patterns applied to
 
 - **Configuration:** You would add **two separate zone groups** inside the same calculated field. Note that they both start by going **Up** to find the Fleet, then **Down** to find the specific zones.
 
-  1.  **Group "serviceArea":**
-    * *Path:* Up to Fleet (Contains) → Down to Zone (FleetToAllowedZone).
-    * *Logic:* Check for `OUTSIDE` status (Alert if truck leaves the service area).
-  2.  **Group "restrictedArea":**
-    * *Path:* Up to Fleet (Contains) → Down to Zone (FleetToRestrictedZone).
-    * *Logic:* Check for `INSIDE` status (Alert if truck enters a danger zone).
+  1.  **Group "serviceArea" group path:** Up to Fleet (Contains) → Down to Zone (FleetToAllowedZone).
+  2.  **"restrictedArea" group path:** Up to Fleet (Contains) → Down to Zone (FleetToRestrictedZone).
 
 > **💡 Visualization Note:** In this demo, the Zone assets include a "zoneType" server attribute ("allowed" or "restricted"). 
 > This is used solely for simple color-coding on the Map Widget (Green vs. Red).
