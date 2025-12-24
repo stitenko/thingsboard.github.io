@@ -255,7 +255,7 @@ To help you get started, here are three common configuration patterns applied to
 
 - **Configuration:** You would add **two separate zone groups** inside the same calculated field. Note that they both start by going **Up** to find the Fleet, then **Down** to find the specific zones.
 
-  1.  **Group "serviceArea" group path:** Up to Fleet (Contains) → Down to Zone (FleetToAllowedZone).
+  1.  **"serviceArea" group path:** Up to Fleet (Contains) → Down to Zone (FleetToAllowedZone).
   2.  **"restrictedArea" group path:** Up to Fleet (Contains) → Down to Zone (FleetToRestrictedZone).
 
 > **💡 Visualization Note:** In this demo, the Zone assets include a "zoneType" server attribute ("allowed" or "restricted"). 
