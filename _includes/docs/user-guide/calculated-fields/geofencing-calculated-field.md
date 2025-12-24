@@ -250,17 +250,21 @@ To help you get started, here are three common configuration patterns applied to
 {% include images-gallery.liquid imageCollection=complexFleetManagementExample %}
 
 - **Goal:** Monitor three distinct conditions for the same truck at the same time:
-  1.  **Allowed:** Is the truck inside its designated "Service Region"?
-  2.  **Restricted:** Did the truck enter a "No-Go Zone" (e.g., low bridge area)?
+  1.  **Allowed:** Is the truck inside its designated "Service Zone"? (e.g., The main delivery district).
+  2.  **Restricted:** Did the truck enter a "No-Go Zone"? (e.g., A restricted facility or hazardous area located elsewhere).
 
-- **Configuration:** You would add **two separate zone groups** inside the same calculated field. Note that they all start by going **Up** to find the Fleet, then **Down** to find the specific zones.
+- **Configuration:** You would add **two separate zone groups** inside the same calculated field. Note that they both start by going **Up** to find the Fleet, then **Down** to find the specific zones.
 
-  1.  **Group "serviceRegion":**
+  1.  **Group "serviceArea":**
     * *Path:* Up to Fleet (Contains) → Down to Zone (FleetToAllowedZone).
     * *Logic:* Check for `OUTSIDE` status (Alert if truck leaves the service area).
-  2.  **Group "restrictedAreas":**
+  2.  **Group "restrictedArea":**
     * *Path:* Up to Fleet (Contains) → Down to Zone (FleetToRestrictedZone).
     * *Logic:* Check for `INSIDE` status (Alert if truck enters a danger zone).
+
+> **💡 Visualization Note:** In this demo, the Zone assets include a "zoneType" server attribute ("allowed" or "restricted"). 
+> This is used solely for simple color-coding on the Map Widget (Green vs. Red).
+> The Calculated Field logic does not use this attribute; it relies entirely on the Relation Type (FleetToAllowedZone vs FleetToRestrictedZone).
 
 - **Why this fits:**
   - **Logic abstraction:** You can effectively "tag" a zone as Restricted or Allowed just by changing the relation type, and the trucks automatically apply the correct logic.
