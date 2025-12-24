@@ -202,12 +202,12 @@ To help you get started, here are three common configuration patterns applied to
 
 ### Scenario 1: Pet Tracker (Self-Geofencing)
 
-**Use Case:** You are building a pet tracking solution. Each dog collar has a unique "Home Zone" defined by the owner (e.g., a 50-meter radius around their specific house).
+**Use Case:** You are building a pet tracking solution. Each dog collar has a unique "Home Zone" defined by the owner (e.g., a 40-meter radius around their specific house).
 
 {% assign petTrackingUsageExample = '
     ===
        image: /images/user-guide/calculated-fields/geofencing/pet-tracking-example-1.png
-       title: You are building a pet tracking solution. Each dog collar has a unique “Home Zone” defined by the owner (e.g., a 50-meter radius around their specific house).'
+       title: You are building a pet tracking solution. Each dog collar has a unique “Home Zone” defined by the owner (e.g., a 40-meter radius around their specific house).'
 %}
 
 {% include images-gallery.liquid imageCollection=petTrackingUsageExample %}

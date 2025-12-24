@@ -1,5 +1,5 @@
 {
-  "title": "Pets Tracking Dashboard",
+  "title": "Warehouse Equipment Tracking Dashboard",
   "image": null,
   "mobileHide": false,
   "mobileOrder": null,
@@ -17,7 +17,7 @@
           "color": "rgba(0, 0, 0, 0.87)",
           "padding": "4px",
           "settings": {
-            "entitiesTitle": "Pets",
+            "entitiesTitle": "Fork Lifts",
             "enableSearch": true,
             "enableSelectColumnDisplay": true,
             "enableStickyHeader": true,
@@ -61,7 +61,7 @@
                   "settings": {}
                 },
                 {
-                  "name": "safeAreaStatus",
+                  "name": "warehouseAreaStatus",
                   "type": "timeseries",
                   "label": "Current Status",
                   "color": "#ffc107",
@@ -74,7 +74,7 @@
                   "postFuncBody": null
                 },
                 {
-                  "name": "safeAreaEvent",
+                  "name": "warehouseAreaEvent",
                   "type": "timeseries",
                   "label": "Last Transition Event",
                   "color": "#f44336",
@@ -227,13 +227,12 @@
                 }
               }
             ],
-            "polygons": [],
-            "circles": [
+            "polygons": [
               {
                 "dsType": "entity",
                 "dsLabel": "",
                 "dsDeviceId": null,
-                "dsEntityAliasId": "7769d4d8-9585-0d5f-93e5-66415be9db1c",
+                "dsEntityAliasId": "030502c4-afe2-4a7b-2de1-14e8c87904fa",
                 "dsFilterId": null,
                 "additionalDataSources": null,
                 "additionalDataKeys": null,
@@ -291,15 +290,16 @@
                   "color": "#3388ff"
                 },
                 "strokeWeight": 3,
-                "circleKey": {
-                  "name": "safeZone",
+                "polygonKey": {
+                  "name": "perimeter",
+                  "label": "perimeter",
                   "type": "attribute",
-                  "label": "safeZone",
-                  "color": "#2196f3",
-                  "settings": {}
+                  "settings": {},
+                  "color": "#2196f3"
                 }
               }
             ],
+            "circles": [],
             "polylines": [],
             "additionalDataSources": [],
             "controlsPosition": "topleft",
@@ -357,7 +357,7 @@
     },
     "states": {
       "default": {
-        "name": "Pets Tracking Dashboard",
+        "name": "Warehouse Equipment Tracking Dashboard",
         "root": true,
         "layouts": {
           "main": {
@@ -397,14 +397,26 @@
     "entityAliases": {
       "7769d4d8-9585-0d5f-93e5-66415be9db1c": {
         "id": "7769d4d8-9585-0d5f-93e5-66415be9db1c",
-        "alias": "Pets",
+        "alias": "Fork Lifts",
         "filter": {
           "type": "deviceType",
           "resolveMultiple": true,
           "deviceTypes": [
-            "Pet Tracker"
+            "Fork Lift"
           ],
           "deviceNameFilter": ""
+        }
+      },
+      "030502c4-afe2-4a7b-2de1-14e8c87904fa": {
+        "id": "030502c4-afe2-4a7b-2de1-14e8c87904fa",
+        "alias": "Warehouse Buildings",
+        "filter": {
+          "type": "assetType",
+          "resolveMultiple": true,
+          "assetTypes": [
+            "Warehouse Building"
+          ],
+          "assetNameFilter": ""
         }
       }
     },
@@ -437,6 +449,6 @@
       "dashboardCss": ""
     }
   },
-  "name": "Pets Tracking Dashboard",
+  "name": "Warehouse Equipment Tracking Dashboard",
   "resources": []
 }
