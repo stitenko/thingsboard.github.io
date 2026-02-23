@@ -1898,6 +1898,9 @@
   url: "/docs/paas/eu/reference/snmp-api/"
   redirect_from:
   - "/docs/paas/eu/reference/snmp-api"
+"/docs/paas/eu/samples/abeeway/tracker/":
+  url: "/docs/paas/eu/samples/abeeway/tracker/"
+  redirect_from: []
 "/docs/paas/eu/samples/analytics/ai-models/":
   url: "/docs/paas/eu/samples/analytics/ai-models/"
   redirect_from: []
@@ -2463,6 +2466,9 @@
   url: "/docs/paas/reference/snmp-api/"
   redirect_from:
   - "/docs/paas/reference/snmp-api"
+"/docs/paas/samples/abeeway/tracker/":
+  url: "/docs/paas/samples/abeeway/tracker/"
+  redirect_from: []
 "/docs/paas/samples/analytics/ai-models/":
   url: "/docs/paas/samples/analytics/ai-models/"
   redirect_from: []
@@ -4002,6 +4008,9 @@
 "/docs/pe/releases/roadmap/":
   url: "/docs/pe/releases/roadmap/"
   redirect_from: []
+"/docs/pe/samples/abeeway/tracker/":
+  url: "/docs/pe/samples/abeeway/tracker/"
+  redirect_from: []
 "/docs/pe/samples/analytics/ai-models/":
   url: "/docs/pe/samples/analytics/ai-models/"
   redirect_from: []
@@ -4674,6 +4683,9 @@
   url: "/docs/reference/architecture/"
   redirect_from:
   - "/docs/user-guide/rule-engine-2-0/architecture/"
+"/docs/reference/circuitpython-client-sdk/":
+  url: "/docs/reference/circuitpython-client-sdk/"
+  redirect_from: []
 "/docs/reference/coap-api/":
   url: "/docs/reference/coap-api/"
   redirect_from:
